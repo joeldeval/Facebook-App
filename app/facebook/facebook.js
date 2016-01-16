@@ -46,6 +46,9 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
         $scope.welcomeMsg = "Welcome " + response.name;
         $scope.isLoggedIn = true;
         $scope.userInfo = response;
+        $facebook.api("/me/picture").then(function(response) {
+            $scope.picture = response.data.url;
+        });
 
       },
       function(err) {

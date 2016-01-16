@@ -3,6 +3,11 @@
       <h4>{{welcomeMsg}}</h4>
 
       <div ng-if="isLoggedIn == false">
+        <a href="{{userInfo.link}}" target="_blank">
+          <img ng-src="{{picture}}" class="img-circle">
+        </a>
+     </div>
+      <div ng-if="isLoggedIn == false">
         <button type="button" class="btn btn-default" ng-click="login()">Login</button>
       </div>
       <div ng-if="isLoggedIn == true">

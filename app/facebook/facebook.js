@@ -26,7 +26,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
 })
 
 .controller('FacebookCtrl', ['$scope','$facebook', function($scope, $facebook) {
-    $scope.isLoggedIN = false;
+    $scope.isLoggedIn = false;
 
     $scope.login = function(){
       $facebook.login().then(function(){
@@ -63,6 +63,13 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
 
     }
 
+    $scope.postStatus = function() {
+      var body = this.body;
+      $facebook.api("/me/feed", 'post', {message: body}).then(function(response) {
+            $scope.msg = "Gracias por Postear";
+            refresh();
+      });
+    }
     refresh();
 
 }]);

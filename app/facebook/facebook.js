@@ -43,7 +43,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
 
     function refresh() {
       $facebook.api("/me").then(function(response) {
-        $scope.welcomeMsg = "Welcome " + response.name;
+        $scope.welcomeMsg = "Bienvenido " + response.name;
         $scope.isLoggedIn = true;
         $scope.userInfo = response;
         $facebook.api("/me/picture").then(function(response) {
@@ -58,7 +58,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
 
       },
       function(err) {
-        $scope.welcomeMsg = "Please Log In";
+        $scope.welcomeMsg = "Inicia sesión";
       });
 
     }
@@ -66,7 +66,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
     $scope.postStatus = function() {
       var body = this.body;
       $facebook.api("/me/feed", 'post', {message: body}).then(function(response) {
-            $scope.msg = "Gracias por Postear";
+            $scope.msg = "Gracias por escribir";
             refresh();
       });
     }

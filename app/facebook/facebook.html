@@ -26,18 +26,18 @@
         <a href="{{userInfo.link}}" target="_blank">
          <img ng-src="{{picture}}" class="img-circle">
         </a>
-        <button type="button" class="btn btn-danger" ng-click="logout()">Cerrar Sesión</button>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="logout()">Cerrar Sesión</button>
      </div>
         <h3> {{welcomeMsg}}</h3> 
         <div ng-if="isLoggedIn == false">
-        <button type="button" class="btn btn-primary" ng-click="login()">Iniciar Sesión</button>
+        <button type="button" class="btn btn-success" ng-click="login()">Iniciar Sesión</button>
       </div>
       <div ng-if="isLoggedIn == true">
           <form ng-submit="postStatus()">
           <div class="form-group">
             <textarea ng-model="body" class="form-control" placeholder="¿Qué estás pensando?"></textarea>
           </div>
-          <button type="submit" class="btn btn-success">Publicar</button>
+          <button type="submit" class="btn btn-info btn-sm">Publicar</button>
         </form>
 
         <br><br>

@@ -1,18 +1,8 @@
 <div class="row" ng-controller="FacebookCtrl">
     <div class="col-md-4">
-      <h4>{{welcomeMsg}}</h4>
 
-      <div ng-if="isLoggedIn == true">
-        <a href="{{userInfo.link}}" target="_blank">
-          <img ng-src="{{picture}}" class="img-circle">
-        </a>
-     </div>
-      <div ng-if="isLoggedIn == false">
-        <button type="button" class="btn btn-default" ng-click="login()">Iniciar Sesión</button>
-      </div>
-      <div ng-if="isLoggedIn == true">
-        <button type="button" class="btn btn-default" ng-click="logout()">Cerrar Sesión</button>
-      </div>
+      
+    
       <br><br>
       <div ng-if="isLoggedIn == true" class="well">
         <h4>Información sobre {{userInfo.name}}</h4>
@@ -31,14 +21,23 @@
       </div>
     </div>
     <div class="col-md-8">
-      <h3>Bienvenido a ng-social - App realizada en Angular y Facebook SDK</h3>
+      
+      <div ng-if="isLoggedIn == true">
+        <a href="{{userInfo.link}}" target="_blank">
+         <img ng-src="{{picture}}" class="img-circle">
+        </a>
+        <button type="button" class="btn btn-danger" ng-click="logout()">Cerrar Sesión</button>
+     </div>
+        <h3> {{welcomeMsg}}</h3> 
+        <div ng-if="isLoggedIn == false">
+        <button type="button" class="btn btn-primary" ng-click="login()">Iniciar Sesión</button>
+      </div>
       <div ng-if="isLoggedIn == true">
           <form ng-submit="postStatus()">
           <div class="form-group">
-            <label for="">¿Qué estás pensando?</label>
             <textarea ng-model="body" class="form-control" placeholder="¿Qué estás pensando?"></textarea>
           </div>
-          <button type="submit" class="btn btn-default">Publicar</button>
+          <button type="submit" class="btn btn-success">Publicar</button>
         </form>
 
         <br><br>
@@ -48,8 +47,9 @@
             </div>
             <div class="sttext">
               {{post.message}}
+              {{post.story}}
               <div class="sttime">
-                {{post.created_time}}
+                {{post.created_time | date:"MM/dd/yyyy 'a las' h:mma"}}
               </div>
               
             </div>
@@ -58,7 +58,7 @@
         </div>
         <div ng-if="isLoggedIn == false">
             <p>
-              Necesitas loguearte para postear
+              
             </p>
         </div>
       </div>

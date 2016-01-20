@@ -2,7 +2,7 @@
     <div class="col-md-4">
       <h4>{{welcomeMsg}}</h4>
 
-      <div ng-if="isLoggedIn == false">
+      <div ng-if="isLoggedIn == true">
         <a href="{{userInfo.link}}" target="_blank">
           <img ng-src="{{picture}}" class="img-circle">
         </a>
@@ -15,14 +15,11 @@
       </div>
       <br><br>
       <div ng-if="isLoggedIn == true" class="well">
-        <h4>Información sobre {{userInfo.first_name}}</h4>
+        <h4>Información sobre {{userInfo.name}}</h4>
         <ul>
           <li>ID: {{userInfo.id}}</li>
-          <li>Nombre: {{userInfo.first_name}} </li>
-          <li>Apellido: {{userInfo.last_name}} </li>
-          <li>Email: {{userInfo.email}}  </li>
-          <li>Genero: {{userInfo.gender}}  </li>
-          <li>Lugar: {{userInfo.locale}}  </li>
+          <li>Nombre: {{userInfo.name}} </li>
+          
         </ul>
       </div>
       <br>
@@ -39,22 +36,24 @@
           <form ng-submit="postStatus()">
           <div class="form-group">
             <label for="">¿Qué estás pensando?</label>
-            <textarea ng-model="body" class="form-control"></textarea>
+            <textarea ng-model="body" class="form-control" placeholder="¿Qué estás pensando?"></textarea>
           </div>
-          <button type="submit" class="btn btn-default">submit</button>
+          <button type="submit" class="btn btn-default">Publicar</button>
         </form>
 
         <br><br>
         <div ng-repeat="post in posts" class="">
             <div class="stimg">
-              <img ng-src="{{picture}}">
+              <img ng-src="{{picture}}" class="img-circle">
             </div>
             <div class="sttext">
               {{post.message}}
               <div class="sttime">
-                {{post.updated_time}}
+                {{post.created_time}}
               </div>
+              
             </div>
+          <hr>
           </div>
         </div>
         <div ng-if="isLoggedIn == false">

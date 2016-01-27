@@ -27,7 +27,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
 
 .controller('FacebookCtrl', ['$scope','$facebook', function($scope, $facebook) {
     $scope.isLoggedIn = false;
-
+    $scope.msg = "";
     $scope.login = function(){
       $facebook.login().then(function(){
         $scope.isLoggedIn = true;
@@ -42,6 +42,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
     }
 
     function refresh() {
+      $scope.body="";
       $facebook.api("/me").then(function(response) {
         $scope.welcomeMsg = "Bienvenido " + response.name;
         $scope.isLoggedIn = true;
@@ -69,7 +70,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
     $scope.postStatus = function() {
       var body = this.body;
       $facebook.api("/me/feed", 'post', {message: body}).then(function(response) {
-            $scope.msg = "Gracias por escribir";
+           
             refresh();
       });
     }

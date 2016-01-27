@@ -52,6 +52,9 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
                 $scope.permissions = response.data;
                 $facebook.api("/me/posts").then(function(response) {
                     $scope.posts = response.data;
+                    $facebook.api("/me/friends").then(function(response){
+                      $scope.friends = response.data;
+                    });
                 });
             });
         });

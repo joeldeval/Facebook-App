@@ -17,6 +17,7 @@
       <div ng-if="isLoggedIn == true" class="well">
         <h4>Información sobre {{userInfo.first_name}}</h4>
         <ul>
+          {{friends | json}}
           <li>ID: {{userInfo.id}}</li>
           <li>Nombre: {{userInfo.first_name}} </li>
           <li>Apellido: {{userInfo.last_name}} </li>

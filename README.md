@@ -1,7 +1,4 @@
-# Facebook App
-Puedes probarlo en [JoelDEVal](http://joeldeval.xyz)
-
-
+#Facebook App
 Éste proyecto es realizado por tecnologias como:
 
   +  [AngularJS](http://angularjs.org/) web app.
